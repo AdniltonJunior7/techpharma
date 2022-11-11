@@ -39,13 +39,13 @@ public class MercadoriaController {
     @Autowired
     MercadoriaRepository MercadoriaRepository;
 
-    @GetMapping("/Mercadorias")
+    @GetMapping("/MercadoriasList")
     public ResponseEntity<List<Mercadoria>> getAllProducts() {
         return new ResponseEntity<>(MercadoriaRepository.findAll(), HttpStatus.OK);
 
     }
 
-    @GetMapping("/Mercadorias/{id}")
+    @GetMapping("/MercadoriasPage")
     public ResponseEntity<Page<Mercadoria>> getAll(@PageableDefault(page = 0, size = 10, sort = "id", direction = Sort.Direction.ASC) final Pageable pageable) {
         return new ResponseEntity<>(MercadoriaRepository.findAll(pageable), HttpStatus.OK);
 

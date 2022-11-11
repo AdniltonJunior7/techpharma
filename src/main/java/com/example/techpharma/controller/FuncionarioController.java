@@ -40,13 +40,13 @@ public class FuncionarioController {
     @Autowired
     FuncionarioRepository FuncionarioRepository;
 
-    @GetMapping("/Funcionarios")
+    @GetMapping("/FuncionariosList")
     public ResponseEntity<List<Funcionario>> getAllProducts() {
         return new ResponseEntity<>(FuncionarioRepository.findAll(), HttpStatus.OK);
 
     }
 
-    @GetMapping("/Funcionarios")
+    @GetMapping("/FuncionariosPage")
     public ResponseEntity<Page<Funcionario>> getAll(@PageableDefault(page = 0, size = 10, sort = "id", direction = Sort.Direction.ASC) final Pageable pageable) {
         return new ResponseEntity<>(FuncionarioRepository.findAll(pageable), HttpStatus.OK);
 

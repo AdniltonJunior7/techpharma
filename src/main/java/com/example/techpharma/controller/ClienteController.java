@@ -39,13 +39,13 @@ public class ClienteController {
     @Autowired
     ClienteRepository ClienteRepository;
 
-    @GetMapping("/Clientes")
+    @GetMapping("/ClientesList")
     public ResponseEntity<List<Cliente>> getAllProducts() {
         return new ResponseEntity<>(ClienteRepository.findAll(), HttpStatus.OK);
 
     }
 
-    @GetMapping("/Clientes/{id}")
+    @GetMapping("/ClientesPage")
     public ResponseEntity<Page<Cliente>> getAll(@PageableDefault(page = 0, size = 10, sort = "id", direction = Sort.Direction.ASC) final Pageable pageable) {
         return new ResponseEntity<>(ClienteRepository.findAll(pageable), HttpStatus.OK);
 
