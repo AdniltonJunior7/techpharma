@@ -35,13 +35,13 @@ public class ClienteController {
     @Autowired
     ClienteRepository ClienteRepository;
 
-    @GetMapping("/Cliente")
+    @GetMapping("/Clientes")
     public ResponseEntity<List<Cliente>> getAllProducts() {
         return new ResponseEntity<>(ClienteRepository.findAll(), HttpStatus.OK);
 
     }
 
-    @GetMapping("/Cliente/{id}")
+    @GetMapping("/Clientes/{id}")
     public ResponseEntity<Cliente> getOneProduct(@PathVariable(value = "id") UUID id) {
         Optional<Cliente> Cliente0 = ClienteRepository.findById(id);
         if (Cliente0.isEmpty()) {
