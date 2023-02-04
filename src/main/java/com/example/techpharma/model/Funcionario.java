@@ -9,6 +9,9 @@ import javax.persistence.Id;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+
+import org.springframework.format.annotation.NumberFormat;
+
 import lombok.Data;
 
 @Data
@@ -27,4 +30,7 @@ public class Funcionario implements Serializable{
     @Email
     private String email;
 
+    @NotNull
+    @NumberFormat
+    private String phone;
 }
